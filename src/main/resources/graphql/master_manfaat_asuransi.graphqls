@@ -1,0 +1,38 @@
+
+type MasterManfaatAsuransi {
+    id: Long
+    masterPlanAsuransi  : MasterPlanAsuransi
+    manfaat             : String
+    nominal             : Float
+    createBy            : String
+    createAt            : String
+    updateBy            : String
+    updateAt            : String
+
+}
+
+input InputMasterManfaatAsuransi {
+    masterPlanAsuransiId: ID!
+    manfaat             : String!
+    nominal             : Float!
+    createBy            : String!
+}
+
+input UpdateMasterManfaatAsuransi {
+    id: Long
+    masterPlanAsuransiId: ID!
+    manfaat             : String
+    nominal             : Float!
+    updateBy            : String!
+}
+
+extend type Query {
+    masterManfaatAsuransis: [MasterManfaatAsuransi]!
+    masterManfaatAsuransi(id: Long!): MasterManfaatAsuransi
+}
+
+extend type Mutation {
+    createMasterManfaatAsuransi(input:InputMasterManfaatAsuransi!): MasterManfaatAsuransi!
+    updateMasterManfaatAsuransi(input:UpdateMasterManfaatAsuransi!): MasterManfaatAsuransi!
+    removeMasterManfaatAsuransi(id: Long!): MasterManfaatAsuransi!
+}

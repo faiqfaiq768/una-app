@@ -1,0 +1,33 @@
+
+type MasterJenisAsuransi {
+    kode: ID
+    deskripsi: String
+    createBy : String
+    createAt : String
+    updateBy : String
+    updateAt : String
+
+}
+
+input InputMasterJenisAsuransi {
+    kode : ID!
+    deskripsi: String!
+    createBy: String!
+}
+
+input UpdateMasterJenisAsuransi {
+    kode:ID!
+    deskripsi: String!
+    updateBy: String!
+}
+
+extend type Query {
+    masterJenisAsuransis: [MasterJenisAsuransi]!
+    masterJenisAsuransi(kode: ID!): MasterJenisAsuransi
+}
+
+extend type Mutation {
+    createMasterJenisAsuransi(input: InputMasterJenisAsuransi!): MasterJenisAsuransi
+    updateMasterJenisAsuransi(input: UpdateMasterJenisAsuransi!): MasterJenisAsuransi
+    removeMasterJenisAsuransi(kode: ID!): MasterJenisAsuransi
+}

@@ -1,0 +1,42 @@
+
+type MasterPolis {
+    id                  : Long
+    nomorPolis          : String
+    masterTertanggung   : MasterTertanggung
+    awalPeriodeAsuransi : String
+    akhirPeriodeAsuransi: String
+    masterPlanAsuransi  : MasterPlanAsuransi
+    createBy            : String
+    createAt            : String
+    updateBy            : String
+    updateAt            : String
+
+}
+
+input InputMasterPolis {
+    masterTertanggungId     : Long!
+    awalPeriodeAsuransi     : String!
+    akhirPeriodeAsuransi    : String!
+    masterPlanAsuransiId    : Long!
+    createBy                : String!
+}
+
+input UpdateMasterPolis {
+    id                      : Long
+    masterTertanggungId     : Long!
+    awalPeriodeAsuransi     : String!
+    akhirPeriodeAsuransi    : String!
+    masterPlanAsuransiId    : Long!
+    updateBy                : String!
+}
+
+extend type Query {
+    masterPolisList: [MasterPolis]!
+    masterPolis(id: Long!): MasterPolis
+}
+
+extend type Mutation {
+    createMasterPolis(input:InputMasterPolis!): MasterPolis!
+    updateMasterPolis(input:UpdateMasterPolis!): MasterPolis!
+    removeMasterPolis(id: Long!): MasterPolis!
+}

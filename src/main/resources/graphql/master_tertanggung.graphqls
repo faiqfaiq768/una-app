@@ -1,0 +1,38 @@
+
+type MasterTertanggung {
+    id                  : Long
+    namaLengkap         : String
+    masterJenisKelamin  : MasterJenisKelamin
+    tanggalLahir        : String
+    createBy            : String
+    createAt            : String
+    updateBy            : String
+    updateAt            : String
+
+}
+
+input InputMasterTertanggung {
+    masterJenisKelaminKode  : Char!
+    namaLengkap             : String!
+    tanggalLahir            : String!
+    createBy                : String!
+}
+
+input UpdateMasterTertanggung {
+    id: Long
+    masterJenisKelaminKode  : Char!
+    namaLengkap             : String
+    tanggalLahir            : String!
+    updateBy                : String!
+}
+
+extend type Query {
+    masterTertanggungs: [MasterTertanggung]!
+    masterTertanggung(id: Long!): MasterTertanggung
+}
+
+extend type Mutation {
+    createMasterTertanggung(input:InputMasterTertanggung!): MasterTertanggung!
+    updateMasterTertanggung(input:UpdateMasterTertanggung!): MasterTertanggung!
+    removeMasterTertanggung(id: Long!): MasterTertanggung!
+}

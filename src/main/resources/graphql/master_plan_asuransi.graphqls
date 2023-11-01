@@ -1,0 +1,40 @@
+scalar Long
+scalar Double
+
+type MasterPlanAsuransi {
+    id: Long
+    masterJenisAsuransi: MasterJenisAsuransi
+    planAsuransi    : String
+    premi           : Float
+    createBy        : String
+    createAt        : String
+    updateBy        : String
+    updateAt        : String
+
+}
+
+input InputMasterPlanAsuransi {
+    masterJenisAsuransiKode: ID!
+    planAsuransi    : String!
+    premi           : Float!
+    createBy        : String!
+}
+
+input UpdateMasterPlanAsuransi {
+    id: Long
+    masterJenisAsuransiKode: ID!
+    planAsuransi        : String
+    premi               : Float!
+    updateBy            : String!
+}
+
+extend type Query {
+    masterPlanAsuransis: [MasterPlanAsuransi]!
+    masterPlanAsuransi(id: Long!): MasterPlanAsuransi
+}
+
+extend type Mutation {
+    createMasterPlanAsuransi(input:InputMasterPlanAsuransi!): MasterPlanAsuransi!
+    updateMasterPlanAsuransi(input:UpdateMasterPlanAsuransi!): MasterPlanAsuransi!
+    removeMasterPlanAsuransi(id: Long!): MasterPlanAsuransi!
+}

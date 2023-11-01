@@ -1,0 +1,34 @@
+scalar Char
+
+type MasterJenisKelamin {
+    kode: Char
+    jenisKelamin: String
+    createBy : String
+    createAt : String
+    updateBy : String
+    updateAt : String
+
+}
+
+input InputMasterJenisKelamin {
+    kode : Char!
+    jenisKelamin: String!
+    createBy: String!
+}
+
+input UpdateMasterJenisKelamin {
+    kode:Char!
+    jenisKelamin: String!
+    updateBy: String!
+}
+
+extend type Query {
+    masterJenisKelamins: [MasterJenisKelamin]!
+    masterJenisKelamin(kode: Char!): MasterJenisKelamin
+}
+
+extend type Mutation {
+    createMasterJenisKelamin(input:InputMasterJenisKelamin!): MasterJenisKelamin!
+    updateMasterJenisKelamin(input:UpdateMasterJenisKelamin!): MasterJenisKelamin!
+    removeMasterJenisKelamin(kode: Char!): MasterJenisKelamin!
+}
