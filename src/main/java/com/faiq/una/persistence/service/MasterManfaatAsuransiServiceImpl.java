@@ -1,6 +1,7 @@
 package com.faiq.una.persistence.service;
 
 import com.faiq.una.persistence.entity.MasterManfaatAsuransi;
+import com.faiq.una.persistence.entity.MasterPlanAsuransi;
 import com.faiq.una.persistence.repository.MasterManfaatAsuransiRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,10 @@ public class MasterManfaatAsuransiServiceImpl implements MasterManfaatAsuransiSe
             this.masterManfaatAsuransiRepository.deleteById(id);
         }
         return masterManfaatAsuransi.orElse(null);
+    }
+
+    @Override
+    public List<MasterManfaatAsuransi> getByPlanAsuransiId(Long id) {
+        return this.masterManfaatAsuransiRepository.findByMasterPlanAsuransiId(id);
     }
 }

@@ -20,4 +20,8 @@ public class MasterManfaatAsuransiQuery implements GraphQLQueryResolver {
     public MasterManfaatAsuransi masterManfaatAsuransi(Long id){
         return this.masterManfaatAsuransiService.getById(id);
     }
+
+    public List<MasterManfaatAsuransi> masterManfaatAsuransiByPlanAsuransiId(Long id){
+        return this.masterManfaatAsuransiService.getByPlanAsuransiId(id);
+    }
 }

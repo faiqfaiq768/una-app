@@ -29,6 +29,7 @@ input UpdateMasterManfaatAsuransi {
 extend type Query {
     masterManfaatAsuransis: [MasterManfaatAsuransi]!
     masterManfaatAsuransi(id: Long!): MasterManfaatAsuransi
+    masterManfaatAsuransiByPlanAsuransiId(id: Long!): [MasterManfaatAsuransi]
 }
 
 extend type Mutation {

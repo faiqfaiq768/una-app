@@ -4,6 +4,10 @@ import com.faiq.una.persistence.entity.MasterPolis;
 import com.faiq.una.persistence.repository.MasterPolisRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,5 +61,10 @@ public class MasterPolisServiceImpl implements MasterPolisService {
     @Override
     public Long countAll() {
         return this.masterPolisRepository.count();
+    }
+
+    @Override
+    public Page<MasterPolis> getAllPagination(Pageable pageable) {
+        return this.masterPolisRepository.findAll(pageable);
     }
 }

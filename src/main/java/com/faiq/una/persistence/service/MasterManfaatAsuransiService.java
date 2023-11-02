@@ -12,4 +12,5 @@ public interface MasterManfaatAsuransiService {
     MasterManfaatAsuransi create(MasterManfaatAsuransi masterManfaatAsuransi);
     MasterManfaatAsuransi update(MasterManfaatAsuransi masterManfaatAsuransi);
     MasterManfaatAsuransi remove(Long id);
+    List<MasterManfaatAsuransi> getByPlanAsuransiId(Long id);
 }

@@ -11,7 +11,7 @@ Untuk menjalankan aplikasi ini :
 
 Import SQL
 ```bash
-  una.sql
+  una_data_sample.sql
 ```
 
 Setelah berhasil dijalankan masuk pada link berikut :
