@@ -14,6 +14,10 @@ Import SQL
   una.sql
 ```
 
+Setelah berhasil dijalankan masuk pada link berikut :
+```bash
+  localhost:8081/graphiql
+```
 
 
 ## Fitur
